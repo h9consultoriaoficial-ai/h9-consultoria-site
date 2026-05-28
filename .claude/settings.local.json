@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($src = \"C:\\\\Users\\\\User\\\\Documents\\\\H9 Consultoria\\\\h9-temp\"; $dst = \"C:\\\\Users\\\\User\\\\Documents\\\\H9 Consultoria\\\\H9 site\"; Get-ChildItem $src -Force | ForEach-Object { Move-Item $_.FullName $dst -Force }; Write-Host \"Moved all files\")",
+      "PowerShell(New-Item -ItemType Directory -Path \"C:\\\\Users\\\\User\\\\Documents\\\\H9 Consultoria\\\\H9 site\\\\public\\\\ebook\" -Force)",
+      "PowerShell(New-Item -ItemType Directory -Path \"C:\\\\Users\\\\User\\\\Documents\\\\H9 Consultoria\\\\H9 site\\\\public\\\\images\" -Force)"
+    ]
+  }
+}
