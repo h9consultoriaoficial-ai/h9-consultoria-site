@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Heart, Target, TrendingUp, Shield, Cross, Users } from "lucide-react";
+import { Heart, Target, TrendingUp, Shield, Cross, Users, BookOpen } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { AudioPlayer } from "@/components/ui/AudioPlayer";
 
 export const metadata: Metadata = {
   title: "Sobre | Heverton Marques",
@@ -185,11 +186,35 @@ export default function SobrePage() {
               marketing. É uma declaração de missão que guia cada análise, cada orientação e cada
               decisão que tomo com meus clientes.
             </p>
-            <div className="space-y-3 pt-2">
+            <div className="space-y-4 pt-2">
               <p>
                 <strong className="text-gold">Amar:</strong> tratar cada cliente com honestidade e
                 cuidado genuíno.
               </p>
+
+              {/* Versículo Mateus 22:37-39 */}
+              <div
+                className="rounded-xl p-5 border-l-4"
+                style={{
+                  background: "rgba(201,168,76,0.1)",
+                  borderLeftColor: "#C9A84C",
+                }}
+              >
+                <div className="flex items-start gap-3">
+                  <BookOpen className="w-4 h-4 text-gold flex-shrink-0 mt-1" />
+                  <div className="space-y-2">
+                    <p className="text-white/80 font-manrope text-sm italic leading-relaxed">
+                      &ldquo;Amarás o Senhor teu Deus de todo o coração, de toda a alma e de todo
+                      o entendimento. Este é o maior e o primeiro mandamento. E o segundo,
+                      semelhante a este, é: Amarás o teu próximo como a ti mesmo.&rdquo;
+                    </p>
+                    <p className="text-gold font-manrope text-xs font-semibold">
+                      Mateus 22:37-39 — A21
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <p>
                 <strong className="text-gold">Vender:</strong> entregar resultado real, com dados e
                 estratégia.
@@ -225,8 +250,17 @@ export default function SobrePage() {
             <h2 className="font-playfair text-2xl sm:text-3xl text-gold mb-2">
               A Espera da Voz do Pai
             </h2>
-            <p className="text-white/50 font-manrope text-sm mb-10">
+            <p className="text-white/50 font-manrope text-sm mb-4">
               Uma canção que nasceu da obediência — 07 de janeiro de 2026
+            </p>
+
+            {/* Player de áudio */}
+            <AudioPlayer
+              src="/audio/espera-voz-pai.mpeg"
+              title="A Espera da Voz do Pai — Heverton Marques"
+            />
+            <p className="text-white/40 font-manrope text-xs mt-2 mb-8">
+              Ouça enquanto lê a letra
             </p>
 
             <div className="font-playfair text-white/85 text-lg leading-loose space-y-1">

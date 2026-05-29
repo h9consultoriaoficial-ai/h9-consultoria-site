@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   ChevronRight,
   ArrowRight,
+  Check,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 
@@ -46,7 +47,12 @@ const problems = [
   },
 ];
 
-const services = [
+const services: Array<{
+  title: string;
+  text?: string;
+  badge?: string;
+  items?: string[];
+}> = [
   {
     title: "Análise de Categoria",
     text: "Inteligência de mercado com dados reais. Top 1.000 SKUs analisados, vendedores dominantes, marcas, palavras-chave estratégicas e ângulos de entrada com baixa concorrência.",
@@ -54,8 +60,14 @@ const services = [
   },
   {
     title: "Consultoria Estratégica",
-    text: "Acompanhamento personalizado na sua operação. Precificação com margem real, portfólio otimizado, anúncios posicionados e crescimento planejado.",
-    badge: "Comissão sobre resultado",
+    items: [
+      "Diagnóstico completo da operação",
+      "Estratégia de precificação com margem real",
+      "Análise e otimização de portfólio",
+      "Posicionamento de anúncios no marketplace",
+      "Acompanhamento semanal de métricas",
+      "Plano de crescimento sustentável",
+    ],
   },
   {
     title: "Ferramentas Exclusivas",
@@ -323,15 +335,33 @@ export default function HomePage() {
             {services.map((s) => (
               <div
                 key={s.title}
-                className="bg-white/5 border border-white/10 hover:border-gold/50 rounded-xl p-6 transition-all duration-200 group"
+                className="bg-white/5 border border-white/10 hover:border-gold/50 rounded-xl p-6 transition-all duration-200 group flex flex-col"
               >
                 <h3 className="font-playfair text-xl text-white mb-3 group-hover:text-gold transition-colors">
                   {s.title}
                 </h3>
-                <p className="text-white/60 font-manrope text-sm leading-relaxed mb-5">{s.text}</p>
-                <span className="inline-block bg-gold/20 text-gold text-xs font-manrope font-semibold px-3 py-1 rounded-full border border-gold/30">
-                  {s.badge}
-                </span>
+
+                {s.items ? (
+                  /* Card com lista — Consultoria Estratégica */
+                  <ul className="flex-1 space-y-2">
+                    {s.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-white/70 font-manrope text-[13px]">
+                        <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  /* Card padrão — texto + badge */
+                  <>
+                    <p className="text-white/60 font-manrope text-sm leading-relaxed mb-5 flex-1">{s.text}</p>
+                    {s.badge && (
+                      <span className="inline-block bg-gold/20 text-gold text-xs font-manrope font-semibold px-3 py-1 rounded-full border border-gold/30 self-start">
+                        {s.badge}
+                      </span>
+                    )}
+                  </>
+                )}
               </div>
             ))}
           </div>
