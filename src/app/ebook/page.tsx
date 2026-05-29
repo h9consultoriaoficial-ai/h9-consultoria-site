@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle2, Star } from "lucide-react";
 import Button from "@/components/ui/Button";
 
@@ -39,108 +40,42 @@ const testimonials = [
   },
 ];
 
-/* ── Capa visual do ebook ── */
+/* ── Capa mockup do ebook ── */
 function EbookCover() {
   return (
-    <div
-      className="relative mx-auto"
-      style={{
-        width: "200px",
-        height: "300px",
-        background: "linear-gradient(145deg, #0A1F3F 0%, #0F2D5C 60%, #1A3F78 100%)",
-        borderRadius: "8px 12px 12px 8px",
-        boxShadow:
-          "4px 6px 20px rgba(0,0,0,0.5), 8px 12px 40px rgba(0,0,0,0.3), inset -3px 0 8px rgba(0,0,0,0.4)",
-        border: "1px solid rgba(201,168,76,0.3)",
-        overflow: "hidden",
-      }}
-    >
-      {/* Spine shadow */}
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          top: 0,
-          bottom: 0,
-          width: "12px",
-          background: "rgba(0,0,0,0.3)",
-          borderRadius: "8px 0 0 8px",
-        }}
-      />
-
-      {/* Badge topo */}
-      <div className="absolute top-3 right-3">
-        <span
-          className="bg-gold text-navy text-[9px] font-manrope font-black uppercase px-2 py-0.5 rounded-full tracking-widest"
-        >
-          GRÁTIS
-        </span>
+    <>
+      <style>{`
+        .ebook-mockup-wrap {
+          perspective: 900px;
+        }
+        .ebook-mockup {
+          border-radius: 4px 10px 10px 4px;
+          transform: rotateY(-8deg);
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+          box-shadow:
+            -8px 8px 24px rgba(0,0,0,0.65),
+            -16px 16px 48px rgba(0,0,0,0.35),
+            -3px 3px 8px rgba(0,0,0,0.55);
+          display: block;
+        }
+        .ebook-mockup-wrap:hover .ebook-mockup {
+          transform: rotateY(0deg) translateY(-6px);
+          box-shadow:
+            0 24px 64px rgba(0,0,0,0.5),
+            0 8px 24px rgba(0,0,0,0.3);
+        }
+      `}</style>
+      <div className="ebook-mockup-wrap inline-block">
+        <Image
+          src="/images/capa-ebook.png"
+          alt="Capa do ebook Os 7 Erros Que Quebram as Empresas — Heverton Marques"
+          width={220}
+          height={310}
+          priority
+          className="ebook-mockup"
+        />
       </div>
-
-      {/* Número 7 decorativo */}
-      <div
-        className="absolute"
-        style={{
-          top: "28px",
-          left: "18px",
-          fontSize: "72px",
-          fontFamily: "var(--font-playfair)",
-          fontWeight: 700,
-          color: "rgba(201,168,76,0.18)",
-          lineHeight: 1,
-          userSelect: "none",
-        }}
-      >
-        7
-      </div>
-
-      {/* Conteúdo principal */}
-      <div className="absolute inset-0 flex flex-col justify-between p-4 pl-5">
-        {/* Título */}
-        <div className="mt-8">
-          <p className="text-gold text-[9px] font-manrope font-bold uppercase tracking-[0.15em] mb-1.5">
-            OS 7 ERROS QUE
-          </p>
-          <p
-            className="font-playfair text-white font-bold leading-tight"
-            style={{ fontSize: "18px" }}
-          >
-            Quebram
-            <br />
-            as
-            <br />
-            Empresas
-          </p>
-        </div>
-
-        {/* Divider dourado */}
-        <div className="w-10 h-px bg-gold/60 my-1" />
-
-        {/* Avatar + nome */}
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center flex-shrink-0">
-              <span className="text-gold font-playfair font-bold text-xs">HM</span>
-            </div>
-            <div>
-              <p className="text-white font-manrope font-bold text-[9px] uppercase tracking-wide">
-                Heverton Marques
-              </p>
-              <p className="text-white/40 font-manrope text-[8px]">
-                Consultor de Marketplaces
-              </p>
-            </div>
-          </div>
-
-          {/* Slogan */}
-          <p
-            className="font-playfair italic text-gold/80 text-[9px] leading-tight"
-          >
-            &ldquo;Amar, Vender<br />para Abençoar&rdquo;
-          </p>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 
@@ -197,8 +132,8 @@ export default function EbookPage() {
             {/* Direita — capa + formulário */}
             <div className="space-y-6">
 
-              {/* Correção 5 — capa visual do livro */}
-              <div className="flex justify-center lg:justify-start">
+              {/* Capa mockup do livro */}
+              <div className="flex justify-center lg:justify-start pl-6 pt-4 pb-2">
                 <EbookCover />
               </div>
 
