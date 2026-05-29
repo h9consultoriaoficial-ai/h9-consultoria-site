@@ -40,39 +40,39 @@ const testimonials = [
   },
 ];
 
-/* ── Capa mockup do ebook ── */
+/* ── Capa mockup do ebook — coluna direita (desktop) ── */
 function EbookCover() {
   return (
     <>
       <style>{`
-        .ebook-mockup-wrap {
-          perspective: 900px;
-        }
-        .ebook-mockup {
-          border-radius: 4px 10px 10px 4px;
-          transform: rotateY(-8deg);
+        .ebook-3d {
+          border-radius: 6px;
+          overflow: hidden;
+          transform: perspective(1000px) rotateY(-6deg);
+          box-shadow:
+            -5px 0 10px rgba(0,0,0,0.3),
+            0 10px 30px rgba(0,0,0,0.45),
+            0 2px 6px rgba(0,0,0,0.2);
           transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow:
-            -8px 8px 24px rgba(0,0,0,0.65),
-            -16px 16px 48px rgba(0,0,0,0.35),
-            -3px 3px 8px rgba(0,0,0,0.55);
           display: block;
+          width: 100%;
+          height: auto;
         }
-        .ebook-mockup-wrap:hover .ebook-mockup {
-          transform: rotateY(0deg) translateY(-6px);
+        .ebook-3d-wrap:hover .ebook-3d {
+          transform: perspective(1000px) rotateY(0deg) translateY(-4px);
           box-shadow:
-            0 24px 64px rgba(0,0,0,0.5),
-            0 8px 24px rgba(0,0,0,0.3);
+            0 4px 8px rgba(0,0,0,0.25),
+            0 20px 40px rgba(0,0,0,0.4);
         }
       `}</style>
-      <div className="ebook-mockup-wrap inline-block">
+      <div className="ebook-3d-wrap w-full">
         <Image
           src="/images/capa-ebook.png"
           alt="Capa do ebook Os 7 Erros Que Quebram as Empresas — Heverton Marques"
-          width={220}
-          height={310}
+          width={400}
+          height={563}
           priority
-          className="ebook-mockup"
+          className="ebook-3d"
         />
       </div>
     </>
@@ -83,72 +83,77 @@ export default function EbookPage() {
   return (
     <>
       {/* ── Hero + Form ── */}
-      <section
-        className="py-16 sm:py-24"
-        style={{ background: "linear-gradient(135deg, #0F2D5C 0%, #1A3F78 100%)" }}
-      >
+      <section className="py-16 sm:py-24" style={{ backgroundColor: "#F5F0E8" }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-12 items-start">
 
-            {/* Esquerda — conteúdo */}
+            {/* Coluna esquerda — badge, título, (mobile: capa), lista, formulário */}
             <div className="space-y-6">
-              <span className="inline-block bg-gold text-navy text-xs font-manrope font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+              <span
+                className="inline-block text-white text-xs font-manrope font-bold px-4 py-1.5 rounded-full uppercase tracking-wider"
+                style={{ backgroundColor: "#C9A84C" }}
+              >
                 Ebook 100% Gratuito
               </span>
 
-              {/* Correção 3 — sem italic no "Quebram" para evitar swash Q */}
               <h1
-                className="font-playfair text-white leading-tight"
-                style={{ fontSize: "clamp(2rem,4vw,3.5rem)" }}
+                className="font-playfair leading-tight"
+                style={{ fontSize: "clamp(2rem,4vw,3.5rem)", color: "#0F2D5C" }}
               >
                 Os 7 Erros Que{" "}
-                <span className="text-gold font-bold">Quebram</span>{" "}
+                <span className="font-bold" style={{ color: "#C9A84C" }}>Quebram</span>{" "}
                 as Empresas
               </h1>
 
-              <p className="text-white/70 font-manrope text-lg leading-relaxed">
+              <p className="font-manrope text-lg leading-relaxed" style={{ color: "#3D3D3D" }}>
                 O guia prático para dominar custos, margens, ponto de equilíbrio e precificação
                 estratégica — com propósito.
               </p>
 
-              {/* Correção 4 — 7 erros completos */}
+              {/* Capa — mobile only, entre subtítulo e lista */}
+              <div className="block lg:hidden">
+                <div style={{ maxWidth: "280px", margin: "0 auto" }}>
+                  <Image
+                    src="/images/capa-ebook.png"
+                    alt="Capa do ebook Os 7 Erros Que Quebram as Empresas"
+                    width={280}
+                    height={394}
+                    style={{ borderRadius: "6px", width: "100%", height: "auto" }}
+                  />
+                </div>
+              </div>
+
+              {/* Lista dos 7 erros */}
               <div className="space-y-3">
-                <p className="text-white font-manrope font-bold text-sm uppercase tracking-wider">
+                <p className="font-manrope font-bold text-sm uppercase tracking-wider" style={{ color: "#0F2D5C" }}>
                   O que você vai aprender:
                 </p>
                 <ul className="space-y-2.5">
                   {erros7.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-white/80 font-manrope text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-3 font-manrope text-sm" style={{ color: "#3D3D3D" }}>
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#C9A84C" }} />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <p className="slogan text-xl">&ldquo;Amar, Vender para Abençoar&rdquo;</p>
-            </div>
-
-            {/* Direita — capa + formulário */}
-            <div className="space-y-6">
-
-              {/* Capa mockup do livro */}
-              <div className="flex justify-center lg:justify-start pl-6 pt-4 pb-2">
-                <EbookCover />
-              </div>
-
               {/* Formulário */}
-              <div id="form" className="bg-white rounded-2xl p-8 shadow-2xl">
-                <h2 className="font-playfair text-2xl text-navy mb-2">
+              <div
+                id="form"
+                className="shadow-md"
+                style={{ marginTop: "32px", backgroundColor: "white", borderRadius: "12px", padding: "32px" }}
+              >
+                <h2 className="font-playfair text-2xl mb-2" style={{ color: "#0F2D5C" }}>
                   Quero o ebook gratuito
                 </h2>
-                <p className="text-navy/50 font-manrope text-sm mb-6">
+                <p className="font-manrope text-sm mb-6" style={{ color: "#9CA3AF" }}>
                   Preencha e receba o PDF imediatamente.
                 </p>
                 <form action="/api/leads" method="POST" className="space-y-4">
                   <input type="hidden" name="origem" value="ebook-page" />
                   <div>
-                    <label className="block text-navy font-manrope text-sm font-semibold mb-1.5">
+                    <label className="block font-manrope text-sm font-semibold mb-1.5" style={{ color: "#0F2D5C" }}>
                       Nome completo *
                     </label>
                     <input
@@ -160,7 +165,7 @@ export default function EbookPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-navy font-manrope text-sm font-semibold mb-1.5">
+                    <label className="block font-manrope text-sm font-semibold mb-1.5" style={{ color: "#0F2D5C" }}>
                       E-mail *
                     </label>
                     <input
@@ -172,7 +177,7 @@ export default function EbookPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-navy font-manrope text-sm font-semibold mb-1.5">
+                    <label className="block font-manrope text-sm font-semibold mb-1.5" style={{ color: "#0F2D5C" }}>
                       WhatsApp
                     </label>
                     <input
@@ -182,15 +187,32 @@ export default function EbookPage() {
                       className="w-full border border-navy/20 rounded-lg px-4 py-3 font-manrope text-sm focus:outline-none focus:ring-2 focus:ring-gold"
                     />
                   </div>
-                  <Button type="submit" variant="gold" size="lg" className="w-full font-bold tracking-wide">
+                  <button
+                    type="submit"
+                    className="w-full font-manrope font-bold text-base"
+                    style={{
+                      backgroundColor: "#C9A84C",
+                      color: "#FFFFFF",
+                      padding: "16px 32px",
+                      borderRadius: "8px",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
                     BAIXAR AGORA — GRÁTIS
-                  </Button>
-                  <p className="text-navy/40 font-manrope text-xs text-center">
+                  </button>
+                  <p className="font-manrope text-xs text-center" style={{ color: "#9CA3AF" }}>
                     Sem spam. Seus dados são respeitados e nunca serão vendidos.
                   </p>
                 </form>
               </div>
             </div>
+
+            {/* Coluna direita — APENAS a capa (desktop) */}
+            <div className="hidden lg:flex items-start justify-center pt-8">
+              <EbookCover />
+            </div>
+
           </div>
         </div>
       </section>
