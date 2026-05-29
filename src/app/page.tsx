@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   TrendingDown,
   BarChart3,
@@ -82,10 +83,13 @@ const services: Array<{
 ];
 
 const ebookBenefits = [
-  "Lucratividade Real — pare de se iludir com o faturamento",
-  "Fluxo de Caixa Blindado — chega de decisão no achismo",
-  "Precificação estratégica que protege sua margem",
-  "Gestão financeira que ama, vende e abençoa",
+  "Lucratividade Real — pare de se iludir com o faturamento alto",
+  "O Fantasma da Conta Vazia — fluxo de caixa que sangra em silêncio",
+  "Precificação Estratégica — calcule o preço que protege sua margem",
+  "Gestão de Custos — identifique os custos invisíveis que destroem o resultado",
+  "Ponto de Equilíbrio — saiba exatamente quanto precisa vender para não perder",
+  "Margem de Contribuição — entenda o que cada produto realmente dá de lucro",
+  "Gestão com Propósito — construa um negócio sustentável com razão de existir",
 ];
 
 const marketplaces = [
@@ -384,8 +388,30 @@ export default function HomePage() {
         className="py-20"
         style={{ background: "linear-gradient(135deg, #0F2D5C 0%, #1A3F78 100%)" }}
       >
+        <style>{`
+          .home-ebook-cover {
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow:
+              -5px 0 10px rgba(0,0,0,0.3),
+              0 10px 30px rgba(0,0,0,0.45),
+              0 2px 6px rgba(0,0,0,0.2);
+            transform: perspective(1000px) rotateY(-6deg);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: block;
+          }
+          .home-ebook-cover:hover {
+            transform: perspective(1000px) rotateY(0deg) translateY(-4px);
+            box-shadow:
+              0 4px 8px rgba(0,0,0,0.25),
+              0 20px 40px rgba(0,0,0,0.4);
+          }
+        `}</style>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+            {/* Esquerda — texto + 7 erros */}
             <div className="space-y-6">
               <span className="inline-block bg-gold text-navy text-xs font-manrope font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
                 Ebook Gratuito
@@ -407,54 +433,72 @@ export default function HomePage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-2xl">
-              <h3 className="font-playfair text-2xl text-navy mb-6">
-                Quero receber o ebook gratuito
-              </h3>
-              <form action="/api/leads" method="POST" className="space-y-4">
-                <div>
-                  <label className="block text-navy font-manrope text-sm font-semibold mb-1.5">
-                    Nome completo
-                  </label>
-                  <input
-                    name="nome"
-                    type="text"
-                    required
-                    placeholder="Seu nome"
-                    className="w-full border border-navy/20 rounded-lg px-4 py-3 font-manrope text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-navy font-manrope text-sm font-semibold mb-1.5">
-                    E-mail
-                  </label>
-                  <input
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="seu@email.com"
-                    className="w-full border border-navy/20 rounded-lg px-4 py-3 font-manrope text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label className="block text-navy font-manrope text-sm font-semibold mb-1.5">
-                    WhatsApp
-                  </label>
-                  <input
-                    name="whatsapp"
-                    type="tel"
-                    placeholder="(00) 00000-0000"
-                    className="w-full border border-navy/20 rounded-lg px-4 py-3 font-manrope text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-                  />
-                </div>
-                <Button type="submit" variant="gold" size="lg" className="w-full font-bold tracking-wide">
-                  BAIXAR AGORA
-                </Button>
-                <p className="text-navy/40 font-manrope text-xs text-center">
-                  Sem spam. Seus dados são respeitados.
-                </p>
-              </form>
+            {/* Direita — capa + formulário */}
+            <div className="space-y-6">
+
+              {/* Capa com efeito 3D */}
+              <div className="flex justify-center lg:justify-start pl-4 pt-2">
+                <Image
+                  src="/images/capa-ebook.png"
+                  alt="Capa do ebook Os 7 Erros Que Quebram as Empresas — Heverton Marques"
+                  width={200}
+                  height={280}
+                  className="home-ebook-cover"
+                  priority
+                />
+              </div>
+
+              {/* Formulário */}
+              <div className="bg-white rounded-2xl p-8 shadow-2xl">
+                <h3 className="font-playfair text-2xl text-navy mb-6">
+                  Quero receber o ebook gratuito
+                </h3>
+                <form action="/api/leads" method="POST" className="space-y-4">
+                  <div>
+                    <label className="block text-navy font-manrope text-sm font-semibold mb-1.5">
+                      Nome completo
+                    </label>
+                    <input
+                      name="nome"
+                      type="text"
+                      required
+                      placeholder="Seu nome"
+                      className="w-full border border-navy/20 rounded-lg px-4 py-3 font-manrope text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-navy font-manrope text-sm font-semibold mb-1.5">
+                      E-mail
+                    </label>
+                    <input
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="seu@email.com"
+                      className="w-full border border-navy/20 rounded-lg px-4 py-3 font-manrope text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-navy font-manrope text-sm font-semibold mb-1.5">
+                      WhatsApp
+                    </label>
+                    <input
+                      name="whatsapp"
+                      type="tel"
+                      placeholder="(00) 00000-0000"
+                      className="w-full border border-navy/20 rounded-lg px-4 py-3 font-manrope text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
+                    />
+                  </div>
+                  <Button type="submit" variant="gold" size="lg" className="w-full font-bold tracking-wide">
+                    BAIXAR AGORA
+                  </Button>
+                  <p className="text-navy/40 font-manrope text-xs text-center">
+                    Sem spam. Seus dados são respeitados.
+                  </p>
+                </form>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
