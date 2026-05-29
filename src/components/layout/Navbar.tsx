@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/servicos", label: "Serviços" },
   { href: "/blog", label: "Blog" },
   { href: "/ebook", label: "Ebook" },
+  { href: "/testemunho-musica", label: "Testemunho & Música" },
   { href: "/contato", label: "Contato" },
 ];
 
