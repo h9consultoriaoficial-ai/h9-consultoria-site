@@ -188,9 +188,6 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              <p className="slogan text-xl">
-                &ldquo;Amar, Vender para Abençoar&rdquo;
-              </p>
             </div>
 
             {/* Right — Video placeholder */}
@@ -211,6 +208,14 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* Slogan — largura total, centralizado */}
+          <div className="text-center mt-12 lg:mt-16">
+            <p className="slogan" style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}>
+              &ldquo;Amar, Vender para Abençoar&rdquo;
+            </p>
+          </div>
+
         </div>
       </section>
 
