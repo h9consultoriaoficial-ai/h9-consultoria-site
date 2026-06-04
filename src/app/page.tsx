@@ -256,17 +256,16 @@ export default function HomePage() {
       <section className="py-20 bg-h9gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Foto placeholder */}
+            {/* Retrato */}
             <div className="flex justify-center">
-              <div className="foto-heverton w-72 h-80 sm:w-80 sm:h-96 rounded-2xl border-4 border-gold bg-navy/10 flex items-center justify-center shadow-lg">
-                <div className="text-center text-navy/40 font-manrope text-sm px-6">
-                  <div className="w-20 h-20 rounded-full bg-navy/20 mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-3xl font-bold text-navy/40">H</span>
-                  </div>
-                  Foto de Heverton
-                  <br />
-                  será adicionada em breve
-                </div>
+              <div className="foto-heverton relative w-72 h-80 sm:w-80 sm:h-96 rounded-2xl border-4 border-gold shadow-lg overflow-hidden">
+                <Image
+                  src="/images/heverton-retrato.png"
+                  alt="Heverton Marques, consultor estratégico da H9"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                />
               </div>
             </div>
 

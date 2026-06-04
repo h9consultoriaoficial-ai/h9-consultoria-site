@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import Button from "@/components/ui/Button";
 
@@ -113,13 +114,33 @@ export default function ServicosPage() {
     <>
       {/* Hero */}
       <section className="bg-navy pt-24 pb-14">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-playfair text-4xl sm:text-5xl text-white mb-4">Nossos Serviços</h1>
-          <p className="text-white/60 font-manrope text-lg max-w-xl mx-auto">
-            Tudo que a H9 entrega — sem contrato longo, sem promessa vazia, com comissão sobre
-            resultado.
-          </p>
-          <p className="slogan text-xl mt-4">Amar, Vender para Abençoar</p>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            {/* Coluna texto — alinhado à esquerda no desktop */}
+            <div>
+              <h1 className="font-playfair text-4xl sm:text-5xl text-white mb-4">
+                Nossos Serviços
+              </h1>
+              <p className="text-white/60 font-manrope text-lg">
+                Tudo que a H9 entrega — sem contrato longo, sem promessa vazia, com comissão sobre
+                resultado.
+              </p>
+              <p className="slogan text-xl mt-4">Amar, Vender para Abençoar</p>
+            </div>
+
+            {/* Coluna imagem — desktop; empilha abaixo no mobile */}
+            <div className="relative h-56 sm:h-64 lg:h-80 rounded-xl overflow-hidden shadow-xl border border-gold/20">
+              <Image
+                src="/images/heverton-apresentacao.png"
+                alt="Heverton Marques apresentando análise estratégica para clientes"
+                fill
+                className="object-cover object-center"
+                priority
+              />
+            </div>
+
+          </div>
         </div>
       </section>
 
