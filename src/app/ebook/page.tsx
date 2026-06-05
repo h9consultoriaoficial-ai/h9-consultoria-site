@@ -221,18 +221,19 @@ export default function EbookPage() {
       <section className="py-20 bg-h9gray">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center">
-            <div className="foto-heverton w-48 h-56 rounded-2xl border-4 border-gold bg-navy/10 flex items-center justify-center mx-auto sm:mx-0">
-              <div className="text-center text-navy/30 font-manrope text-xs px-4">
-                <div className="w-14 h-14 rounded-full bg-navy/20 mx-auto mb-2 flex items-center justify-center">
-                  <span className="text-xl font-bold text-navy/30">H</span>
-                </div>
-                Foto do Heverton
-              </div>
+            <div className="foto-heverton relative w-48 h-56 rounded-2xl border-4 border-gold shadow-lg mx-auto sm:mx-0 overflow-hidden">
+              <Image
+                src="/images/ebook.png"
+                alt="Heverton Marques, consultor estratégico da H9"
+                fill
+                className="object-cover object-[50%_10%]"
+                priority
+              />
             </div>
-            <div className="sm:col-span-2 space-y-4">
+            <div className="sm:col-span-2 space-y-4 text-center">
               <h2 className="font-playfair text-2xl sm:text-3xl text-navy">Heverton Marques</h2>
               <p className="text-gold font-manrope font-semibold">
-                Consultor Estratégico de Marketplaces · Limeira, SP
+                Consultor Estratégico em gestão e vendas Online
               </p>
               <p className="text-navy/70 font-manrope leading-relaxed">
                 Vivenciei na prática tudo que está neste ebook — tanto os erros quanto as

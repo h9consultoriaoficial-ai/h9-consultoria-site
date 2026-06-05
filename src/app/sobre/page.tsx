@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Heart, Target, TrendingUp, Shield, Cross, Users, BookOpen } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { AudioPlayer } from "@/components/ui/AudioPlayer";
@@ -22,23 +23,28 @@ const chapters = [
   },
   {
     number: "02",
+    title: "O Nascimento da H9",
+    text: "A H9 nasceu antes mesmo de tudo isso se resolver. Eu já atuava com consultoria e, prevendo que precisaria encerrar a Dismar, criei a H9 com um propósito claro: ajudar outras pessoas a não cometerem os mesmos erros que cometi, e levar adiante tudo aquilo que fiz de certo e que realmente deu fruto. Naquele momento, ela era apenas um complemento da renda das minhas vendas online — não o foco principal. A H9 já existia antes de Deus me direcionar para a consultoria.",
+  },
+  {
+    number: "03",
     title: "A Encruzilhada",
     text: "Tinha três caminhos à minha frente: recomeçar do zero vendendo produtos que eu já conhecia, manter apenas as vendas em marketplaces, ou focar em consultoria de gestão empresarial e vendas online, usando meus erros e acertos como lição para outros. Estava lutando com todas as forças, mas nada funcionava. Andava desnorteado, chorando e orando, tentando entender o porquê de tudo aquilo.",
   },
   {
-    number: "03",
+    number: "04",
     title: "O Vale da Sombra",
     text: "Em um dia de solidão absoluta, ajoelhei-me e fiz uma oração especial: pela primeira vez, entreguei minha vida totalmente nas mãos de Deus. Senti uma paz inexplicável e, pouco depois, Ele me deu a direção mais improvável e difícil: focar na consultoria. Mas a obediência trouxe tempestades ainda maiores. Sem salário, com contas domésticas atrasadas e credores me cercando, cheguei ao meu limite emocional. Mas o temor a Deus e o amor profundo pela minha esposa e pela minha filha me impediram de desistir. O Espírito Santo foi minha única força naquele abismo.",
   },
   {
-    number: "04",
+    number: "05",
     title: "A Voz que Não Abandona",
     text: "De junho a novembro de 2025, Deus silenciou. Foram seis meses sem ouvir Sua voz, vivendo uma dependência absoluta. No dia 17 de novembro, enquanto eu trabalhava, Deus falou de forma real e audível. A confirmação que esperava chegou. No dia 3 de dezembro, Ele falou novamente sobre um detalhe cotidiano que só Ele poderia saber. Senti tremor e reverência — mas também alegria sobrenatural. Ele nunca me havia abandonado.",
   },
   {
-    number: "05",
-    title: "O Nascimento da H9",
-    text: "Na quarta-feira, dia 7 de janeiro de 2026, enquanto enfrentava um problema persistente, Deus ordenou: 'Escreva uma música'. Sem ser músico ou compositor, orei pedindo a letra, e em menos de três minutos ela estava pronta — exatamente como você a lê hoje. Naquele momento, entendi que tudo o que havia vivido não era o fim. Era a fundação. A H9 Consultoria Estratégica não nasceu de um plano de negócios. Nasceu de uma obediência.",
+    number: "06",
+    title: "A Música da Obediência",
+    text: "Na quarta-feira, dia 7 de janeiro de 2026, enquanto enfrentava um problema persistente, Deus ordenou: 'Escreva uma música'. Sem ser músico ou compositor, orei pedindo a letra, e em menos de três minutos ela estava pronta — exatamente como você a lê hoje. Naquele momento, entendi que tudo o que havia vivido não era o fim. Era a fundação. A H9 não nasceu de um plano de negócios. Ela foi o propósito que Deus já havia colocado em mim — e que eu decidi não abandonar. Um chamado para levar, junto com a consultoria, o conforto, a fé e a esperança que nasceram das minhas próprias experiências.",
   },
 ];
 
@@ -111,23 +117,22 @@ export default function SobrePage() {
       <section className="bg-navy pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="foto-heverton w-72 h-80 sm:w-80 sm:h-96 rounded-2xl border-4 border-gold bg-white/5 flex items-center justify-center shadow-2xl mx-auto lg:mx-0">
-              <div className="text-center text-white/30 font-manrope text-sm px-6">
-                <div className="w-20 h-20 rounded-full bg-white/10 mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-3xl font-bold text-white/30">H</span>
-                </div>
-                Foto de Heverton
-                <br />
-                será adicionada em breve
-              </div>
+            <div className="foto-heverton relative w-72 h-80 sm:w-80 sm:h-96 rounded-2xl border-4 border-gold shadow-2xl mx-auto lg:mx-0 overflow-hidden">
+              <Image
+                src="/images/sobre.png"
+                alt="Heverton Marques, consultor estratégico da H9"
+                fill
+                className="object-cover object-[50%_45%]"
+                priority
+              />
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-5 text-center">
               <h1 className="font-playfair text-4xl sm:text-5xl text-white">
                 Heverton Marques
               </h1>
               <p className="text-gold font-manrope font-semibold text-lg">
-                Consultor Estratégico de Marketplaces · Limeira, SP
+                Consultor Estratégico em gestão e vendas Online
               </p>
               <p className="slogan text-2xl">
                 &ldquo;Amar, Vender para Abençoar&rdquo;

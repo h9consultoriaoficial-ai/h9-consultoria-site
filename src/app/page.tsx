@@ -275,13 +275,13 @@ export default function HomePage() {
             </div>
 
             {/* Texto */}
-            <div className="space-y-6">
+            <div className="space-y-6 text-center">
               <div>
                 <h2 className="font-playfair text-3xl sm:text-4xl text-navy">
                   Heverton Marques
                 </h2>
                 <p className="text-gold font-manrope font-semibold mt-1">
-                  Consultor Estratégico de Marketplaces
+                  Consultor Estratégico em gestão e vendas Online
                 </p>
               </div>
 
