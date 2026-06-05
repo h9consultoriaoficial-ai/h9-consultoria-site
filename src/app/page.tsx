@@ -142,7 +142,7 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left */}
-            <div className="space-y-7 animate-fade-up">
+            <div className="space-y-7 animate-fade-up text-center">
               <span className="inline-flex items-center gap-2 bg-white/10 text-white/80 text-xs font-manrope font-medium px-3 py-1.5 rounded-full border border-white/20">
                 Consultoria Estratégica · Limeira, SP
               </span>
@@ -161,7 +161,7 @@ export default function HomePage() {
                 margem saudável, processos sólidos e uma razão de existir que move.
               </p>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 justify-center">
                 {["Sem contrato longo", "Comissão sobre resultado", "Ética acima de tudo"].map(
                   (chip) => (
                     <span
@@ -174,7 +174,7 @@ export default function HomePage() {
                 )}
               </div>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 justify-center">
                 <Button href={WA_URL} variant="whatsapp" size="lg" external>
                   Falar com Heverton
                 </Button>
